@@ -5,3 +5,6 @@ body {background: #333;}
 h2 span, section h3 { display:none;}
 body {font-size: xx-large;}
 footer, input {font-size:large;}
+
+#img_author{width:100px;height:100px;text-align:left; margin:20px;}
+#datos_author{text-align:left;float:left;}
