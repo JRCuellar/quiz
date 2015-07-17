@@ -31,10 +31,8 @@ sequelize.sync().then(function(){
 			Quiz.bulkCreate(
 				[{pregunta:'Capital de Italia', respuesta:'Roma'},
 				 {pregunta:'Capital de Portugal', respuesta:'Lisboa'},
-				 {pregunta:'Madrid pertenece a Italia',respuesta:'No'},
 				 {pregunta:'Italia pertenece a la unión europea',respuesta:'Si'},
 				 {pregunta:'Benidorm pertenece a Italia',respuesta:'No'},
-				 {pregunta:'Oporto esta al norte de portugal',respuesta:'Si'}
 				]
 			).then(function(){console.log('Base de datos inicializada')});;
 		}
