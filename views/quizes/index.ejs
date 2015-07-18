@@ -5,7 +5,11 @@
 <table>
 <% var i; for (i=0; i < quizes.length; i++) { %>
 	<tr>
-		<td><a href="quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
+		<td class="pregunta_list">
+		<b>Pregunta:</b> <a href="quizes/<%= quizes[i].id %>" class="pregunta_list"><%= quizes[i].pregunta %></a>
+		<br>
+		<b>Tema:</b><%= quizes[i].tema %>
+		</td>
 		<td><a href="quizes/<%= quizes[i].id %>/edit"><button>editar</button></a></td>
 		<td>
 			<form method="post" action="quizes/<%= quizes[i].id %>?_method=delete">

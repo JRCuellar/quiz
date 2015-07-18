@@ -29,10 +29,10 @@ sequelize.sync().then(function(){
 	Quiz.count().then(function(count){
 		if (count===0){
 			Quiz.bulkCreate(
-				[{pregunta:'Capital de Italia', respuesta:'Roma'},
-				 {pregunta:'Capital de Portugal', respuesta:'Lisboa'},
-				 {pregunta:'Italia pertenece a la unión europea',respuesta:'Si'},
-				 {pregunta:'Benidorm pertenece a Italia',respuesta:'No'},
+				[{pregunta:'Capital de Italia', respuesta:'Roma',tema:'Ocio'},
+				 {pregunta:'Capital de Portugal', respuesta:'Lisboa',tema:'Ocio'},
+				 {pregunta:'Italia pertenece a la unión europea',respuesta:'Si',tema:'Ciencia'},
+				 {pregunta:'Benidorm pertenece a Italia',respuesta:'No',tema:'Humanidades'},
 				]
 			).then(function(){console.log('Base de datos inicializada')});;
 		}
