@@ -1,10 +1,28 @@
 exports.loginRequired = function(req,res,next){
 	if (req.session.user){
-		next();
+		next();		
 	}else{
 		res.redirect('/login');
 	}
 };
+
+
+exports.autoLogout = function(req,res,next){
+	if (req.session.user){
+		fechaActual = Date.now();
+		userfechaAnterior = req.session.fechaAnterior;
+
+		aux = fechaActual - userfechaAnterior;
+		console.log(fechaActual + ' - ' + userfechaAnterior + ' = ' +aux);
+		if (aux > 120000){
+			res.redirect('/logout');
+		}else{
+			next();
+		}
+	}else{
+		next();
+	}
+}
 
 exports.new = function (req,res){
 	var errors = req.session.errors || {};

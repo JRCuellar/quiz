@@ -32,6 +32,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req,res,next){
     if (!req.path.match(/\/login|\/logout/)){
         req.session.redir = req.path;
+        if (!req.session.fechaAnterior)
+            req.session.fechaAnterior = Date.now();
+        else
+            req.session.fechaAnterior = req.session.fechaActual;
+        req.session.fechaActual = Date.now();
+
+        console.log(req.session.fechaActual);
     }
 
     res.locals.session = req.session;
