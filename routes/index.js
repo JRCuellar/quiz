@@ -1,9 +1,10 @@
 var express = require('express');
 var router  = express.Router();
 
-var quizController 		= require('../controllers/quiz_controller');
-var commentController 	= require('../controllers/comment_controller');
-var sessionController	= require('../controllers/session_controller');
+var quizController 		 = require('../controllers/quiz_controller');
+var commentController 	 = require('../controllers/comment_controller');
+var sessionController	 = require('../controllers/session_controller');
+var statisticsController = require('../controllers/statistics_controller');
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -13,6 +14,8 @@ router.get('/', function(req, res) {
 router.get('/author',function(req,res){
 	res.render('author',{ nombre:'Javier',apellidos:'Ramos Cuellar',edad:'34', pais:'España',ciudad:'Madrid', errors:[]});
 });
+
+router.get('/statistics', statisticsController.getStatistics);
 
 router.param('quizId', quizController.load);
 router.param('commentId', commentController.load);

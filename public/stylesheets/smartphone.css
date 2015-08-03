@@ -8,5 +8,6 @@ footer, input {font-size:large;}
 
 #img_author{width:100px;height:100px;text-align:left; margin:20px;}
 #datos_author{text-align:left;float:left;}
+#estadisticas{text-align:left;font-size:small;}
 
 .pregunta_list{font-size:14px; text-align: left;}
