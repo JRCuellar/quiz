@@ -7,15 +7,15 @@ var sessionController	 = require('../controllers/session_controller');
 var statisticsController = require('../controllers/statistics_controller');
 
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/', sessionController.autoLogout, function(req, res) {
   	res.render('index', { title: 'Quiz' , errors:[]});
 });
 
-router.get('/author',function(req,res){
+router.get('/author',sessionController.autoLogout, function(req,res){
 	res.render('author',{ nombre:'Javier',apellidos:'Ramos Cuellar',edad:'34', pais:'España',ciudad:'Madrid', errors:[]});
 });
 
-router.get('/statistics', statisticsController.getStatistics);
+router.get('/statistics', sessionController.autoLogout, statisticsController.getStatistics);
 
 router.param('quizId', quizController.load);
 router.param('commentId', commentController.load);
